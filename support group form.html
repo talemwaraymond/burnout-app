@@ -1,0 +1,124 @@
+<form action="/submit-registration" method="post">
+    <h2>Register for a Support Group Session</h2>
+    <p>Join a safe, welcoming space to share and grow. Fill out the form below to secure your spot.</p>
+  
+    <!-- Full Name -->
+    <label for="full-name">Full Name: <span style="color: red;">*</span></label>
+    <input type="text" id="full-name" name="full_name" placeholder="Enter your full name" required>
+  
+    <!-- Email -->
+    <label for="email">Email Address: <span style="color: red;">*</span></label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  
+    <!-- Phone Number -->
+    <label for="phone">Phone Number (Optional):</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+  
+    <!-- Support Group Type -->
+    <label for="group-type">Preferred Group Type: <span style="color: red;">*</span></label>
+    <select id="group-type" name="group_type" required>
+      <option value="">-- Select an option --</option>
+      <option value="virtual">Virtual Group (Zoom call, Saturday, 2 PM - 4 PM, 20,000 shs)</option>
+      <option value="physical">In-Person Group (National ICT Innovation Hub, Nakawa, Saturday, 2 PM - 4 PM, 50,000 shs)</option>
+      <option value="either">No Preference</option>
+    </select>
+  
+    <!-- Location (for Physical Groups) -->
+    <div id="location-group" style="display: none;">
+      <label for="location">Preferred Location (for in-person sessions):</label>
+      <input type="text" id="location" name="location" placeholder="National ICT Innovation Hub, Nakawa">
+    </div>
+  
+    <!-- Support Topics -->
+    <label for="topics">Mental Health Challenges You’re Facing (Optional):</label>
+    <textarea id="topics" name="topics" rows="4" placeholder="Describe any mental health issues you’re currently experiencing"></textarea>
+  
+    <!-- Availability -->
+    <label for="availability">Availability (Days & Times): <span style="color: red;">*</span></label>
+    <textarea id="availability" name="availability" rows="3" placeholder="E.g., Saturdays 2 PM - 4 PM" required></textarea>
+  
+    <!-- Consent Checkbox -->
+    <label>
+      <input type="checkbox" id="consent" name="consent" required>
+      I agree to participate in a respectful and supportive environment. <span style="color: red;">*</span>
+    </label>
+  
+    <!-- Submit Button -->
+    <button type="submit">Submit Registration</button>
+  </form>
+  
+  <script>
+    // Show/Hide location field based on group type
+    document.getElementById('group-type').addEventListener('change', function() {
+      const locationGroup = document.getElementById('location-group');
+      locationGroup.style.display = this.value === 'physical' ? 'block' : 'none';
+    });
+  </script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    form {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+  
+    p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  
+    input:focus, select:focus, textarea:focus {
+      border-color: #0056b3;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+    }
+  
+    button {
+      background-color: #0056b3;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+  
+    button:hover {
+      background-color: #004494;
+    }
+  </style>
+  
